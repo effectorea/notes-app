@@ -1,0 +1,7 @@
+::ng-deep .p-tabview-nav {
+    padding: 0
+}
+
+::ng-deep button {
+    border-radius: 6px
+}

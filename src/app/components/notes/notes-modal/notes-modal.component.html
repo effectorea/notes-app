@@ -1,0 +1,33 @@
+<div id="noteDialog" ngbAutofocu>
+
+    <div class="modal-header">
+        <h3 class="m-0">
+            {{buttonType === 'Добавить' ? 'Добавить новую заметку' : 'Редактировать заметку'}}
+        </h3>
+    </div>
+
+    <div class="modal-body pb-0 pt-0">
+        <form class="mb-4 mt-4 d-flex flex-column" [formGroup]="form" >
+            <div *ngIf="form.getRawValue().id" class="d-flex flex-column w-25 mb-2">
+                <label for="noteId">Id</label>
+                <input pInputText id="noteId" formControlName="id"/>
+            </div>
+            <div>
+                <label for="noteText">Тект заметки</label>
+                <textarea
+                        id="noteText"
+                        cols="60"
+                        autoResize="true"
+                        pInputTextarea
+                        formControlName="noteText">
+            </textarea>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer justify-content-end border-0 p-0 m-3">
+        <p-button class="border-4" size="small" (onClick)="closeModal()" label="Отмена" severity="secondary" icon="pi pi-times" [raised]="true"/>
+        <p-button size="small" (onClick)="saveData()" label="Сохранить" icon="pi pi-save" [raised]="true" [disabled]="form.invalid"/>
+    </div>
+
+</div>
