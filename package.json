@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy:gh": "ng b --base-href https://effectorea.github.io/notes-app/ && npx ngh --dir=dist/notes-app/browser"
+    "build:prod": "ng build --configuration=production --base-href=/notes-app/"
   },
   "private": true,
   "dependencies": {
