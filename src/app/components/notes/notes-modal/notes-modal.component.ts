@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit} from '@angular/core';
+import {Component, DestroyRef, EventEmitter, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ButtonType} from "../../../models/buttonType";
@@ -10,6 +10,8 @@ import { v4 as uuid } from 'uuid';
 import {MultiSelectModule} from "primeng/multiselect";
 import {Tag} from "../../../models/tag";
 import {Note} from "../../../models/note";
+import {NotesService} from "../../../services/notes.service";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-notes-modal',
@@ -30,35 +32,27 @@ export class NotesModalComponent implements OnInit{
     noteText: new FormControl<string | null>(null, [
       Validators.required,
     ]),
-    tags: new FormControl<string[] | null>(null, [
+    tags: new FormControl<Tag[] | null>(null, [
         Validators.required
     ]),
   })
 
-  constructor(private modalService: NgbModal) {
+  constructor(
+      private modalService: NgbModal,
+      private destroyRef: DestroyRef,
+      private notesService: NotesService) {
   }
 
   ngOnInit() {
-    console.log();
-    this.tags = [
-      {
-        id: 'buhkmdkmc',
-        name: 'First tag'
-      },
-      {
-        id: 'iejiemx',
-        name: 'Second tag'
-      },
-      {
-        id: 'kxdmxld',
-        name: 'Third tag'
-      }
-    ]
+    this.notesService.tags$.pipe(
+        takeUntilDestroyed(this.destroyRef)
+    ).subscribe((tags) => {
+      this.tags = tags
+    })
     if (this.inputNote) this.patchValues(this.inputNote)
   }
 
   private patchValues(note: Note): void {
-    console.log('Input note is here', note)
     this.form.patchValue({
       id: note.id,
       noteText: note.noteText,
@@ -71,6 +65,7 @@ export class NotesModalComponent implements OnInit{
     modalData.id = this.inputNote ? modalData.id : uuid()
     this.savingHandler.emit(modalData)
     this.closeModal()
+    console.log('hi')
   }
 
   public closeModal(): void {
