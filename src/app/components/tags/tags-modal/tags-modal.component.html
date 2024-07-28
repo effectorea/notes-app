@@ -1,0 +1,23 @@
+<div id="tagDialog">
+
+    <div class="modal-header">
+        <h3 class="m-0">
+            {{'Добавить новый тэг'}}
+        </h3>
+    </div>
+
+    <div class="modal-body pb-0 pt-0">
+        <form class="mb-4 mt-4 d-flex flex-column" [formGroup]="form" autocomplete="off" >
+            <div class="d-flex flex-column">
+                <label for="tagName">Название тэга</label>
+                <input type="text" pInputText formControlName="name" id="tagName"/>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-footer justify-content-end border-0 p-0 m-3">
+        <p-button class="border-4" size="small" (onClick)="closeModal()" label="Отмена" severity="secondary" icon="pi pi-times" [raised]="true"/>
+        <p-button size="small" (onClick)="saveData()" label="Сохранить" icon="pi pi-save" [raised]="true" [disabled]="form.invalid"/>
+    </div>
+
+</div>
