@@ -95,5 +95,6 @@ export class NotesService {
     })
     localStorage.setItem('notes', JSON.stringify(newArr))
     this.notes.next(newArr)
+    console.log('hi')
   }
 }
