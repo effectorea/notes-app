@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {Button} from "primeng/button";
 import {TabViewModule} from "primeng/tabview";
-import {NgComponentOutlet, NgForOf, NgSwitchCase} from "@angular/common";
+import {CommonModule, NgComponentOutlet, NgForOf, NgSwitchCase} from "@angular/common";
 import {NotesComponent} from "./components/notes/notes.component";
 import {NotificationsComponent} from "./components/notifications/notifications.component";
 import {TagsComponent} from "./components/tags/tags.component";
@@ -20,7 +20,8 @@ import {TabInterface} from "./models/tabInterface";
         NgSwitchCase,
         NotificationsComponent,
         TagsComponent,
-        NgComponentOutlet
+        NgComponentOutlet,
+        CommonModule
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',

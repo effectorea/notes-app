@@ -8,7 +8,7 @@
 
     <div class="modal-body pb-0 pt-0">
         <form class="mb-4 mt-4 d-flex flex-column" [formGroup]="form" >
-            <div *ngIf="form.getRawValue().id" class="d-flex flex-column w-25 mb-2">
+            <div *ngIf="form.getRawValue().id" class="d-flex flex-column w-100 mb-2">
                 <label for="noteId">Id</label>
                 <input pInputText id="noteId" formControlName="id"/>
             </div>
@@ -20,7 +20,19 @@
                         autoResize="true"
                         pInputTextarea
                         formControlName="noteText">
-            </textarea>
+                </textarea>
+            </div>
+
+            <div class="d-flex flex-column w-100">
+                <label>Тэги</label>
+                <p-multiSelect
+                        inputId="float-label"
+                        [options]="tags"
+                        formControlName="tags"
+                        optionLabel="name"
+                        fiterBy="name"
+                        emptyMessage="Ни одного тега не добавлено. Попробуйте сначала добавить его на вкладке 'Теги'"
+                />
             </div>
         </form>
     </div>
