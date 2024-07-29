@@ -28,7 +28,6 @@ export class NotesService {
   getAllTagsFromStorage(): Observable<Tag[]> {
     return new Observable<Tag[]>(subscriber => {
       const tags = localStorage.getItem('tags')
-      console.log('Tags from storage', tags);
       if (tags) {
         subscriber.next(JSON.parse(tags))
       }
@@ -95,7 +94,6 @@ export class NotesService {
     })
     localStorage.setItem('notes', JSON.stringify(newArr))
     this.notes.next(newArr)
-    console.log('hi')
   }
 
   saveNotification(time: string | Date | null, item: Note): void {

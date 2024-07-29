@@ -1,27 +1,31 @@
-# NotesApp
+# NotesApp - Приложение  для создания заметок 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
+Фронтенд приложения доступен по следующей ссылке [Notes-App](https://effectorea.github.io/notes-app/)   
+Кодовая база приложения и сам репозиторий доступны по следующей ссылке [Repository](https://github.com/effectorea/notes-app)
 
-## Development server
+## Описание самого проекта
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+С помощью проекта можно создавать заметки в режиме реального времени. Все заметки сохраняются в браузере в `localStorage`.
+То есть, при перезагрузке страницы они останутся. Само приложение состоит из трех вкладок.
+Первая вкладка служит для создания самой заметки, которая состоит из текста заметки и тега (или нескольких тегов).
+Создать заметку без тега не получится. Тег можно выбрать из выпадающего списка. Предварительно создав его на отдельной вкладке "Тэги".
+В этом приложении тег рассматривается как отдельная сущность. Первоначально, чтобы создавать заметки, нужно создать все необходимые теги.
+При удалении тега заметка, которая использует его, удаляется, чтобы не нарушать целостность данных и архитектуры. 
+Чтобы пользователь случайно не удалил заметку, при удалении тега у него запрашивается подтверждение на удаление.
+На вкладке "Напоминания" можно создать напоминание для определенной заметки, выбрав ее из списка.
+При удалении тега или заметки напоминание тоже удаляется. У одной заметки может быть только одно напоминание.
+При повторном назначении напоминания с новой датой она перезаписывается.
 
-## Code scaffolding
+## Сервер для разработки
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Чтобы запустить приложение в режиме разработки, необходимо склонировать к себе репозиторий сам проект.   
+Затем установить все зависимости с помощью команды `npm install` и запустить проект командой `ng serve`.   
+После чего, вбить в адресной строке браузера `http://localhost:4200/`.
 
-## Build
+## Про версии сопутствующих утилит
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Это приложение было сгенерировано при помощи [Angular CLI](https://github.com/angular/angular-cli) версия 18.1.2.   
+Версия Node - 20.14.0 (при сборке проекта лучше не использовать версию ниже 18)   
+Версия NPM - 10.7.0   
+При создании проекта преимущественно использовалась библиотека PrimeNG.   
+Для быстрой стилизации элементов и верстки использовалась библиотека Bootstrap.   

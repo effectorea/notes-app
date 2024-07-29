@@ -63,7 +63,6 @@ export class NotesModalComponent implements OnInit{
     modalData.id = this.inputNote ? modalData.id : uuid()
     this.savingHandler.emit(modalData)
     this.closeModal()
-    console.log('hi')
   }
 
   public closeModal(): void {
