@@ -1,4 +1,4 @@
-import {Component, DestroyRef, EventEmitter, Input, OnInit} from '@angular/core';
+import {Component, DestroyRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ButtonType} from "../../../models/buttonType";
@@ -23,7 +23,7 @@ import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 export class NotesModalComponent implements OnInit{
   @Input() buttonType!: ButtonType;
   @Input() inputNote!: Note;
-  @Input() savingHandler: EventEmitter<any> = new EventEmitter<any>();
+  @Output() savingHandler: EventEmitter<any> = new EventEmitter<any>();
   tags!: Tag[];
   form = new FormGroup({
     id: new FormControl<null | string>({value: null, disabled: true},

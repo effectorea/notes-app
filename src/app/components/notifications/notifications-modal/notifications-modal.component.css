@@ -1,0 +1,4 @@
+:host ::ng-deep .p-listbox-list {
+    margin-bottom: 0;
+    padding: 0.25rem 0.75rem;
+}

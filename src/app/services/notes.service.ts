@@ -97,4 +97,16 @@ export class NotesService {
     this.notes.next(newArr)
     console.log('hi')
   }
+
+  saveNotification(time: string | Date | null, item: Note): void {
+    const oldNotesArr = this.notes.getValue()
+    const newArr = oldNotesArr.map((note) => {
+      if (note.id === item.id) {
+        note.time = time
+      }
+      return note
+    })
+    localStorage.setItem('notes', JSON.stringify(newArr))
+    this.notes.next(newArr)
+  }
 }

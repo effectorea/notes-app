@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {v4 as uuid} from "uuid";
@@ -19,7 +19,7 @@ import {InputTextModule} from "primeng/inputtext";
     styleUrl: './tags-modal.component.css'
 })
 export class TagsModalComponent {
-    @Input() savingHandler: EventEmitter<any> = new EventEmitter<any>();
+    @Output() savingHandler: EventEmitter<any> = new EventEmitter<any>();
     form = new FormGroup({
         id: new FormControl<null | string>({value: null, disabled: true},
             Validators.required

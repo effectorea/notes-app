@@ -1,0 +1,41 @@
+<div id="notificationDialog">
+    <div class="modal-header">
+        <h3 class="m-0">
+            {{'Добавить напоминание'}}
+        </h3>
+    </div>
+    <div class="modal-body pb-0 pt-0">
+        <form class="mb-4 mt-4 d-flex flex-column" [formGroup]="form" >
+            <div *ngIf="(notesObservable$ | async) as notes" class="d-flex flex-column">
+                <p class="m-0">Выберите заметку из списка ниже: </p>
+                <p-listbox
+                        [options]="notes"
+                        id="notifications"
+                        formControlName="selectedNote"
+                        optionLabel="noteText"
+                        autoOptionFocus="false"
+                        [style]="{'width':'100%'}"
+                        [listStyle]="{'max-height': '220px'}" />
+
+                <div class="d-flex flex-column mt-4">
+                    <label for="time">Дата напоминания:</label>
+                    <p-calendar
+                            id="time"
+                            placeholder="Выберите дату"
+                            formControlName="time"
+                            dateFormat="dd.mm.yy"
+                            [iconDisplay]="'input'"
+                            [style]="{'width':'100%'}"
+                            [showIcon]="true"
+                            [showTime]="true"
+                            inputId="icondisplay" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer justify-content-end border-0 p-0 m-3">
+        <p-button class="border-4" size="small" (onClick)="closeModal()" label="Отмена" severity="secondary" icon="pi pi-times" [raised]="true"/>
+        <p-button size="small" (onClick)="saveData()" label="Сохранить" icon="pi pi-save" [raised]="true" [disabled]="form.invalid"/>
+    </div>
+
+</div>

@@ -5,3 +5,15 @@
 ::ng-deep button {
     border-radius: 6px
 }
+
+:host ::ng-deep .p-tabview-nav-link {
+    color: rgba(156, 163, 175, 1);
+}
+
+:host ::ng-deep .p-highlight a {
+    color: rgba(59, 130, 246, 1);
+}
+
+:host ::ng-deep a:hover, :host ::ng-deep a{
+    text-decoration: none;
+}
