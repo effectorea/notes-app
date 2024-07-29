@@ -8,7 +8,6 @@ import {NotesService} from "../../../services/notes.service";
 import {AsyncPipe, NgIf} from "@angular/common";
 import {ListboxModule} from "primeng/listbox";
 import {CalendarModule} from "primeng/calendar";
-import moment from "moment";
 
 @Component({
     selector: 'app-notifications-modal',

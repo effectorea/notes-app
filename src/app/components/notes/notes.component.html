@@ -20,26 +20,10 @@
                             <p-button icon="pi pi-pencil" size="small" (onClick)="showDialog('Редактировать', note)"/>
                         </div>
                     </div>
-
-
-                    <!--                    <div class="d-flex flex-column" *ngIf="$any(note).tags.length > 0">-->
-                    <!--                        <p class="m-0">Теги:</p>-->
-                    <!--                        <p-scrollPanel [style]="{ width: '100%', height: '50px' }" class="m-0 p-0">-->
-                    <!--                            <div class="d-flex gap-2">-->
-                    <!--                                <p-chip *ngFor="let tag of $any(note).tags">{{tag.name}}</p-chip>-->
-                    <!--                            </div>-->
-                    <!--                        </p-scrollPanel>-->
-                    <!--                    </div>-->
                 </ng-template>
                 <p class="m-0 note-header">Текст заметки:</p>
                 <div class="d-flex flex-row w-100">
                     <p class="m-0 d-inline-flex text-wrap">{{$any(note).noteText}}</p>
-
-
-                    <!--                    <div class="d-flex flex-row gap-2 justify-content-end p-1 w-25" >-->
-                    <!--                        <p-button icon="pi pi-pencil" size="small" (onClick)="showDialog('Редактировать', note)"/>-->
-                    <!--                        <p-button icon="pi pi-trash" size="small" severity="danger" (onClick)="deleteNote(note)"/>-->
-                    <!--                    </div>-->
                 </div>
             </p-card>
         </div>
