@@ -11,6 +11,9 @@
             <div class="d-flex flex-column">
                 <label for="tagName">Название тэга</label>
                 <input type="text" pInputText formControlName="name" id="tagName"/>
+                <p class="fs-6 text-danger" *ngIf="$any(form.controls.name.errors)?.required && $any(form.controls.name).touched">
+                    Поле обязательно к заполнению
+                </p>
             </div>
         </form>
     </div>

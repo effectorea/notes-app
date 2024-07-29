@@ -1,4 +1,4 @@
-<p-button (onClick)="showDialog()" label="Создать напоминание"></p-button>
+<p-button size="small" (onClick)="showDialog()" label="Создать напоминание"></p-button>
 
 <div *ngIf="(notesObservable$ | async) as notes" class="mt-3">
     <ng-container *ngIf="notes.length > 0; else elseBlock">

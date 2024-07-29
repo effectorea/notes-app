@@ -26,9 +26,7 @@ export class NotesModalComponent implements OnInit{
   @Output() savingHandler: EventEmitter<any> = new EventEmitter<any>();
   tags!: Tag[];
   form = new FormGroup({
-    id: new FormControl<null | string>({value: null, disabled: true},
-        Validators.required
-    ),
+    id: new FormControl<null | string>({value: null, disabled: true}),
     noteText: new FormControl<string | null>(null, [
       Validators.required,
     ]),

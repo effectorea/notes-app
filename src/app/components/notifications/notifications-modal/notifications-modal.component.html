@@ -16,6 +16,9 @@
                         autoOptionFocus="false"
                         [style]="{'width':'100%'}"
                         [listStyle]="{'max-height': '220px'}" />
+                <p class="fs-6 text-danger" *ngIf="$any(form.controls.selectedNote.errors)?.required && $any(form.controls.selectedNote).touched">
+                    Необходимо выбрать заметку
+                </p>
 
                 <div class="d-flex flex-column mt-4">
                     <label for="time">Дата напоминания:</label>
@@ -29,6 +32,9 @@
                             [showIcon]="true"
                             [showTime]="true"
                             inputId="icondisplay" />
+                    <p class="fs-6 text-danger" *ngIf="$any(form.controls.time.errors)?.required && $any(form.controls.time).touched">
+                        Необходимо выбрать дату
+                    </p>
                 </div>
             </div>
         </form>

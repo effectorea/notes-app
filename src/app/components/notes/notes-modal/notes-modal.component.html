@@ -21,6 +21,9 @@
                         pInputTextarea
                         formControlName="noteText">
                 </textarea>
+                <p class="fs-6 text-danger" *ngIf="$any(form.controls.noteText.errors)?.required && $any(form.controls.noteText).touched">
+                    Поле обязательно к заполнению
+                </p>
             </div>
 
             <div class="d-flex flex-column w-100">
@@ -31,8 +34,12 @@
                         formControlName="tags"
                         optionLabel="name"
                         fiterBy="name"
+                        display="chip"
                         emptyMessage="Ни одного тега не добавлено. Попробуйте сначала создать его на вкладке 'Теги'"
                 />
+                <p class="fs-6 text-danger" *ngIf="$any(form.controls.tags.errors)?.required && $any(form.controls.tags).touched">
+                    Необходимо выбрать хотя бы один тэг
+                </p>
             </div>
         </form>
     </div>

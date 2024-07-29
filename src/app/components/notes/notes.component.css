@@ -6,3 +6,17 @@
     padding-top: 0;
     padding-bottom: 0;
 }
+
+:host ::ng-deep .p-card {
+    box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+:host ::ng-deep .p-card-header {
+    padding: 0.5rem;
+}
+
+:host ::ng-deep .tags-header, .note-header {
+    padding-bottom: 5px;
+    color: #ababab;
+    font-weight: 300;
+}
